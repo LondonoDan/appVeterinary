@@ -1,0 +1,11 @@
+app\validators\PersonInputsValidator.class
+app\dtos\SessionDto.class
+app\validators\InputsValidator.class
+appModels\Pet.class
+app\controller\LoginController.class
+app\validators\PetInputsValidator.class
+appModels\Person.class
+appModels\Login.class
+appModels\Order.class
+com\mycompany\appveterinary\AppVeterinary.class
+appModels\Invoice.class
