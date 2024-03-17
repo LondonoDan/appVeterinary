@@ -23,6 +23,6 @@ public class InvoiceValidator extends InputsValidator {
 		return super.integerValidator(quantity, "Ingrese la cantidad");
 	}
    
-    //preguntar como validar la fecha y petId y ownerId
+
     
 }

@@ -38,7 +38,7 @@ public class LoginController {
         
         private void loginRouter(PersonDto personDto) {
 		if (personDto.getRol().equals("Veterinaria")) {
-			veteniraryController.session();
+			veteniraryController.session(personDto);
 		} if (personDto.getRol().equals("Administrativo")) {
 			adminController.session();
 		} 

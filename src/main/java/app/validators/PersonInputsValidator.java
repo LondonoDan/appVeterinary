@@ -6,8 +6,8 @@ public class PersonInputsValidator extends InputsValidator{
 		super.stringValidator(fullName, "nombre de usuario");
 	}
 
-	public long idValidator(String number) throws Exception {
-		return super.longValidator(number, "id de usuario");
+	public long cedulaValidator(String number) throws Exception {
+		return super.longValidator(number, "Cedula de usuario");
 	}
 	
         public int ageValidator(String age) throws Exception{

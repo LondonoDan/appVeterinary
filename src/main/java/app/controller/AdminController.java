@@ -28,7 +28,7 @@ public class AdminController {
                 System.out.println("ingrese la edad del usuario");
                 int age = personInputValidator.ageValidator(reader.nextLine());
 		System.out.println("ingrese la cedula del usuario");
-		Long id = personInputValidator.idValidator(reader.nextLine());
+		Long id = personInputValidator.cedulaValidator(reader.nextLine());
 		System.out.println("ingrese el rol completo: Administrativo, Veterinario, Vendedor");
 		String rol = reader.nextLine();
 		personInputValidator.fullNameValidator(rol);

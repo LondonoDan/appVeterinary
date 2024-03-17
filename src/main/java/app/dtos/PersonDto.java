@@ -4,7 +4,7 @@ import appModels.Person;
 
 public class PersonDto {
     
-        private long id;
+        private long cedula;
 	private String fullName;
 	private String rol;
         private int age;
@@ -20,8 +20,8 @@ public class PersonDto {
 		this.password = password;
 	}
 
-    public PersonDto(long id, String fullName, String rol, int age, String userName, String password) {
-        this.id = id;
+    public PersonDto(long cedula, String fullName, String rol, int age, String userName, String password) {
+        this.cedula = cedula;
         this.fullName = fullName;
         this.rol = rol;
         this.age = age;
@@ -29,10 +29,17 @@ public class PersonDto {
         this.password = password;
     }
 
-	
+    public PersonDto(String fullName) {
+        this.fullName = fullName;
+    }
 
-	public PersonDto(Person person) {
-		this.id = person.getId();
+    public PersonDto(long cedula) {
+        this.cedula = cedula;
+    }
+
+    
+            public PersonDto(Person person) {
+		this.cedula = person.getCedula();
 		this.fullName = person.getFullName();
 		this.rol = person.getRol();
                 this.age = person.getAge();
@@ -45,15 +52,15 @@ public class PersonDto {
 	public PersonDto() {
 	}
 
-	public long getId() {
-		return id;
+	public long getcedula() {
+		return cedula;
 	}
 
         
         
         
-	public void setId(long id) {
-		this.id = id;
+	public void setcedula(long cedula) {
+		this.cedula = cedula;
 	}
 
 	public String getFullName() {

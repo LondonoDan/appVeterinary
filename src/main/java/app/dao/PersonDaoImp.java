@@ -18,7 +18,7 @@ public class PersonDaoImp implements  PersonDao{
 		String query = "INSERT INTO PERSONA(CEDULA,NOMBRE,ROLE,EDAD,USERNAME,PASSWORD) VALUES (?,?,?,?,?,?)";
 		PreparedStatement preparedStatement = connection.prepareStatement(query);
 		int i = 1;
-		preparedStatement.setLong(i++, personDto.getId());
+		preparedStatement.setLong(i++, personDto.getcedula());
 		preparedStatement.setString(i++, personDto.getFullName());
 		preparedStatement.setString(i++, personDto.getRol());
                 preparedStatement.setInt(i++, personDto.getAge());
@@ -26,13 +26,14 @@ public class PersonDaoImp implements  PersonDao{
 		preparedStatement.setString(i++, personDto.getPassword());
 		preparedStatement.execute();
 		preparedStatement.close();
+                
 	}
 
 	@Override
 	public boolean findUserExist(PersonDto personDto) throws Exception {
 		String query = "SELECT 1 FROM PERSONA WHERE CEDULA = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(query);
-		preparedStatement.setLong(1, personDto.getId());
+		preparedStatement.setLong(1, personDto.getcedula());
 		ResultSet resulSet = preparedStatement.executeQuery();
 		boolean userExists = resulSet.next();
 		resulSet.close();
@@ -44,11 +45,11 @@ public class PersonDaoImp implements  PersonDao{
 	public PersonDto findUserById(PersonDto personDto) throws Exception {
 		String query = "SELECT CEDULA,FULLNAME,USERNAME,PASSWORD,ROL FROM PERSONA WHERE ID = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(query);
-		preparedStatement.setLong(1, personDto.getId());
+		preparedStatement.setLong(1, personDto.getcedula());
 		ResultSet resulSet = preparedStatement.executeQuery();
 		if(resulSet.next()) {
 			Person person = new Person();
-			person.setId(resulSet.getLong("CEDULA"));
+			person.setCedula(resulSet.getLong("CEDULA"));
 			person.setFullName(resulSet.getString("NOMBRE"));
 			person.setRol(resulSet.getString("ROLE"));
 			person.setUserName(resulSet.getString("USERNAME"));
@@ -66,7 +67,7 @@ public class PersonDaoImp implements  PersonDao{
 	public boolean existUserByUserName(PersonDto personDto) throws Exception {
 		String query = "SELECT 1 FROM PERSONA WHERE USERNAME = ?";
 		PreparedStatement preparedStatement = connection.prepareStatement(query);
-		preparedStatement.setString(1, personDto.getUserName());
+		preparedStatement.setString(1, personDto.getFullName());
 		ResultSet resulSet = preparedStatement.executeQuery();
 		boolean userExists = resulSet.next();
 		resulSet.close();
@@ -82,7 +83,7 @@ public class PersonDaoImp implements  PersonDao{
 		ResultSet resulSet = preparedStatement.executeQuery();
 		if(resulSet.next()) {
 			Person person = new Person();
-			person.setId(resulSet.getLong("CEDULA"));
+			person.setCedula(resulSet.getLong("CEDULA"));
 			person.setFullName(resulSet.getString("NOMBRE"));
 			person.setRol(resulSet.getString("ROLE"));
 			person.setUserName(resulSet.getString("USERNAME"));

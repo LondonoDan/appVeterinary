@@ -41,34 +41,5 @@ public class OwnerDaoImp implements OwnerDao{
 		return userExists;
 	}
         
-        @Override
-	public OwnerDto findUserById(OwnerDto ownerDto) throws Exception {
-		String query = "SELECT CEDULA,NOMBRE,EDAD, FROM PROPIETARIO WHERE ID = ?";
-		PreparedStatement preparedStatement = connection.prepareStatement(query);
-		preparedStatement.setLong(1, ownerDto.getId());
-		ResultSet resulSet = preparedStatement.executeQuery();
-		if(resulSet.next()) {
-			Owner owner = new Owner();
-			ownerDto.setId(resulSet.getLong("CEDULA"));
-			ownerDto.setFullName(resulSet.getString("NOMBRE"));
-			ownerDto.setAge(resulSet.getInt("EDAD"));
-			
-			resulSet.close();
-			preparedStatement.close();
-			return new OwnerDto(owner);
-		}
-		resulSet.close();
-		preparedStatement.close();
-		return null;
-	}
-    
-    
-    
-    
-    
-    
-   
-    
-    
-    
+         
 }

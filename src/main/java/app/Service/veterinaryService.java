@@ -1,6 +1,7 @@
 package app.Service;
 
 
+import app.dao.HistoryClinicalImp;
 import app.dao.LoginDao;
 import app.dao.LonginDaolmp;
 import app.dao.OwnerDaoImp;
@@ -15,6 +16,8 @@ import java.util.List;
 import app.dao.OwnerDao;
 import app.dao.PetDao;
 import app.dao.PetDaoImp;
+import app.dao.clinicalHistoryDao;
+import app.dtos.clinicalHistoryDto;
 
 public class veterinaryService implements VeterinaryServic, LoginService {
    
@@ -65,6 +68,15 @@ public class veterinaryService implements VeterinaryServic, LoginService {
 		loginDao.logout(sessionId);
 		setSesionID(0);
 	}
+
+    @Override
+    public void create(clinicalHistoryDto clinicalHistoryDto) throws Exception {
+       clinicalHistoryDao clinicalHistoryDao = new HistoryClinicalImp();
+       clinicalHistoryDao.create(clinicalHistoryDto);
+       System.out.println("se ha insertado la historia clinica");
+       
+       
+    }
 
     
 

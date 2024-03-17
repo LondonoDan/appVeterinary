@@ -6,7 +6,7 @@ import appModels.Pet;
 public class PetDto{
     
     private String name;
-    protected OwnerDto id; //validar si también debe estar en el PetValidator
+    protected OwnerDto id; 
     private int age;
     private String species;
     private String breed;

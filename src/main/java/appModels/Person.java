@@ -2,7 +2,7 @@ package appModels;
 
 public class Person {
     
-        private long id;
+        private long cedula;
 	private String fullName;
 	private String rol;
         private int age;
@@ -16,15 +16,19 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }   
-        
-        
-    public long getId() {
-        return id;
+
+    public long getCedula() {
+        return cedula;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setCedula(long cedula) {
+        this.cedula = cedula;
     }
+        
+        
+    
+
+    
 
     public String getFullName() {
         return fullName;
