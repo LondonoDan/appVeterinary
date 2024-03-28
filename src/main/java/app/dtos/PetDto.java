@@ -1,21 +1,23 @@
 package app.dtos;
 
 
+
+import appModels.Person;
 import appModels.Pet;
 
 public class PetDto{
     
     private String name;
-    protected OwnerDto id; 
+    protected PersonDto cedula; 
     private int age;
     private String species;
     private String breed;
     private String characteristics;
     private double weight;
 
-    public PetDto(String name, OwnerDto id, int age, String species, String breed, String characteristics, double weight) {
+    public PetDto(String name, PersonDto cedula, int age, String species, String breed, String characteristics, double weight) {
         this.name = name;
-        this.id = id;
+        this.cedula = cedula;
         this.age = age;
         this.species = species;
         this.breed = breed;
@@ -23,14 +25,12 @@ public class PetDto{
         this.weight = weight;
     }
 
-    
+    public PetDto() {
+    }
 
-    
-
-    
-     public PetDto(Pet pet) {
+     public PetDto(Pet pet, Person person) {
         this.name = name;
-        this.id = id;
+        this.cedula = cedula;
         this.age = age;
         this.species = species;
         this.breed = breed;
@@ -48,16 +48,14 @@ public class PetDto{
         this.name = name;
     }
 
-   
-
-    public void setId(OwnerDto id) {
-        this.id = id;
+    public PersonDto getCedula() {
+        return cedula;
     }
 
-   
-    public OwnerDto getId() {
-        return id;
+    public void setCedula(PersonDto cedula) {
+        this.cedula = cedula;
     }
+
 
     
 

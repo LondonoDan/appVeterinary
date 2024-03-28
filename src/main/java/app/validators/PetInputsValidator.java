@@ -6,8 +6,8 @@ public class PetInputsValidator extends InputsValidator {
 		super.stringValidator(name, "nombre de mascota");
 	}
     
-    public long idValidator(String id) throws Exception {
-		return super.longValidator(id, "Cédula de propietario");
+    public long idValidator(String cedula) throws Exception {
+		return super.longValidator(cedula, "Cédula de propietario");
 	}
     
     public int ageValidator(String age) throws Exception{
@@ -31,6 +31,6 @@ public class PetInputsValidator extends InputsValidator {
 	}
     
     public double weightValidator(String weight) throws Exception {
-	return	super.doubleValidator(weight, "Peso de la mascota");
+	return super.doubleValidator(weight, "Peso de la mascota");
 	}
 }

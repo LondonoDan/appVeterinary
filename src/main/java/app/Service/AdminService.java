@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AdminService implements AdministratorService,LoginService {
-    List<String> roles = Arrays.asList("veterinario", "Administrativo", "Vendedor");
+    List<String> roles = Arrays.asList("veterinario", "Administrativo", "Vendedor","Usuario");
     private static long sessionId = 0L;
 
     @Override

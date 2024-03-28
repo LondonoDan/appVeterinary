@@ -18,9 +18,9 @@ public class HistoryClinicalImp implements clinicalHistoryDao{
                 + "DIAGNOSIS,MEDICATIONDOSAGE,ORDERCANCELATION) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = connection.prepareStatement(query);
 		int i = 1;
-                preparedStatement.setDate(i++, clinicalHistoryDto.getDate());
-                preparedStatement.setLong(i++,clinicalHistoryDto.getId().getId());
-                preparedStatement.setLong(i++, clinicalHistoryDto.getCedula().getCedula());
+                preparedStatement.setLong(i++, clinicalHistoryDto.getAdmissionDate());
+                preparedStatement.setLong(i++, clinicalHistoryDto.getId().getcedula());
+                preparedStatement.setLong(i++, clinicalHistoryDto.getCedula().getcedula());
                 preparedStatement.setString(i++, clinicalHistoryDto.getMotive());
                 preparedStatement.setString(i++, clinicalHistoryDto.getSymptomatology());
                 preparedStatement.setString(i++, clinicalHistoryDto.getProcedure());

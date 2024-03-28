@@ -4,8 +4,8 @@ import java.sql.Date;
 
 public class clinicHistory {
     
-    private Date date;
-    private Owner id;
+    private Date admissionDate;
+    private Person id;
     private Person cedula;
     private String motive;
     private String symptomatology;
@@ -17,39 +17,24 @@ public class clinicHistory {
     private String detailProcedure;
     private String diagnosis;
     private String medicationDosage;
-    private int ordercancelation;
-    
-    
-    
-    
-    
-    
-
-    public clinicHistory() {
-        this.date=new Date(System.currentTimeMillis());
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
-    
-    
-    
-    
+    private int ordercancelation=0;
 
     
 
+   public Date getAdmissionDate() {
+		return admissionDate;
+	}
+	public void setAdmissionDate(Date admissionDate) {
+		this.admissionDate = admissionDate;
+	}
+
     
 
-    public Owner getId() {
+    public Person getId() {
         return id;
     }
 
-    public void setId(Owner id) {
+    public void setId(Person id) {
         this.id = id;
     }
 
@@ -147,11 +132,7 @@ public class clinicHistory {
 
     public void setOrdercancelation(int ordercancelation) {
         this.ordercancelation = ordercancelation;
-    }
-    
-    
-    
-    
+    }   
     
     
 }

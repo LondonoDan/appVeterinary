@@ -5,12 +5,12 @@ import java.sql.Date;
 public class Order {
     
     private long orderId;
-    private long petId;
+    private Pet idPet;
     private Person ownerID;
     private Person veterinarianID;
     private String medicationName;
     private String dosage;
-    private Date generationDate;
+    private Date  generationDate = new Date(System.currentTimeMillis());
 
     public long getOrderId() {
         return orderId;
@@ -20,13 +20,15 @@ public class Order {
         this.orderId = orderId;
     }
 
-    public long getPetId() {
-        return petId;
+    public Pet getIdPet() {
+        return idPet;
     }
 
-    public void setPetId(long petId) {
-        this.petId = petId;
+    public void setIdPet(Pet idPet) {
+        this.idPet = idPet;
     }
+
+   
 
     public Person getOwnerID() {
         return ownerID;

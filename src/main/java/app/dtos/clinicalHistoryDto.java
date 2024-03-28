@@ -1,14 +1,13 @@
 package app.dtos;
 
-import appModels.Owner;
 import appModels.Person;
-import java.sql.Date;
+import appModels.clinicHistory;
 
 public class clinicalHistoryDto {
     
-    private Date date;
-    private Owner id;
-    private Person cedula;
+    private long admissionDate;
+    private PersonDto id;
+    private PersonDto cedula;
     private String motive;
     private String symptomatology;
     private String procedure;
@@ -21,70 +20,71 @@ public class clinicalHistoryDto {
     private String medicationDosage;
     private int ordercancelation;
 
+    public clinicalHistoryDto(long admissionDate, PersonDto id, PersonDto cedula, String motive, String symptomatology, String procedure, String medicines, int order, String vaccines, String allergy, String detailProcedure, String diagnosis, String medicationDosage, int ordercancelation) {
+        this.admissionDate = admissionDate;
+        this.id = id;
+        this.cedula = cedula;
+        this.motive = motive;
+        this.symptomatology = symptomatology;
+        this.procedure = procedure;
+        this.medicines = medicines;
+        this.order = order;
+        this.vaccines = vaccines;
+        this.allergy = allergy;
+        this.detailProcedure = detailProcedure;
+        this.diagnosis = diagnosis;
+        this.medicationDosage = medicationDosage;
+        this.ordercancelation = ordercancelation;
+    }
+
+    
+     public clinicalHistoryDto(clinicHistory clinicalHistory,Person person) {
+        this.admissionDate = admissionDate;
+        this.id = id;
+        this.cedula = cedula;
+        this.motive = motive;
+        this.symptomatology = symptomatology;
+        this.procedure = procedure;
+        this.medicines = medicines;
+        this.order = order;
+        this.vaccines = vaccines;
+        this.allergy = allergy;
+        this.detailProcedure = detailProcedure;
+        this.diagnosis = diagnosis;
+        this.medicationDosage = medicationDosage;
+        this.ordercancelation = ordercancelation;
+    }
+    
+    
+    
+    
     public clinicalHistoryDto() {
     }
     
-    
-    
 
-    public clinicalHistoryDto(Date date, Owner id, Person cedula, String motive, String symptomatology, String procedure, String medicines, int order, String vaccines, String allergy, String detailProcedure, String diagnosis, String medicationDosage, int ordercancelation) {
-        this.date = date;
-        this.id = id;
-        this.cedula = cedula;
-        this.motive = motive;
-        this.symptomatology = symptomatology;
-        this.procedure = procedure;
-        this.medicines = medicines;
-        this.order = order;
-        this.vaccines = vaccines;
-        this.allergy = allergy;
-        this.detailProcedure = detailProcedure;
-        this.diagnosis = diagnosis;
-        this.medicationDosage = medicationDosage;
-        this.ordercancelation = ordercancelation;
-    }
-    
-     public clinicalHistoryDto(clinicalHistoryDto clinicalHistoryDto, OwnerDto ownerDto, PersonDto personDto ) {
-        this.date=new Date(System.currentTimeMillis());
-        this.id = id;
-        this.cedula = cedula;
-        this.motive = motive;
-        this.symptomatology = symptomatology;
-        this.procedure = procedure;
-        this.medicines = medicines;
-        this.order = order;
-        this.vaccines = vaccines;
-        this.allergy = allergy;
-        this.detailProcedure = detailProcedure;
-        this.diagnosis = diagnosis;
-        this.medicationDosage = medicationDosage;
-        this.ordercancelation = ordercancelation;
-    }
 
-    public Date getDate() {
-        return date;
-    }
+	public long getAdmissionDate() {
+		return admissionDate;
+	}
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+	public void setAdmissionDate(long admissionDate) {
+		this.admissionDate = admissionDate;
+	}
     
 
-    
-
-    public Owner getId() {
+    public PersonDto getId() {
         return id;
     }
 
-    public void setId(Owner id) {
+    public void setId(PersonDto id) {
         this.id = id;
     }
 
-    public Person getCedula() {
+    public PersonDto getCedula() {
         return cedula;
     }
 
-    public void setCedula(Person cedula) {
+    public void setCedula(PersonDto cedula) {
         this.cedula = cedula;
     }
 
@@ -176,10 +176,7 @@ public class clinicalHistoryDto {
         this.ordercancelation = ordercancelation;
     }
 
-    
-    
-    
-  
+   
     
    
     

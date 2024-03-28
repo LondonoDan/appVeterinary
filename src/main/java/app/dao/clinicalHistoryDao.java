@@ -8,4 +8,5 @@ public interface clinicalHistoryDao {
     public void create(clinicalHistoryDto clinicalHistoryDto) throws Exception;
     
     
+    
 }

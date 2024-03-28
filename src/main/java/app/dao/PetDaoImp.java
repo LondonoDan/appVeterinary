@@ -16,7 +16,7 @@ public class PetDaoImp implements PetDao{
 		int i = 1;
 		preparedStatement.setString(i++, petDto.getName());
                 preparedStatement.setInt(i++, petDto.getAge());
-                preparedStatement.setLong(i++,petDto.getId().getId());
+                preparedStatement.setLong(i++,petDto.getCedula().getcedula());
                 preparedStatement.setString(i++, petDto.getBreed());
                 preparedStatement.setString(i++, petDto.getCharacteristics());
                 preparedStatement.setString(i++, petDto.getSpecies());

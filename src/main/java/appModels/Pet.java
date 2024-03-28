@@ -3,7 +3,7 @@ package appModels;
 public class Pet {
     
     private String name;
-    private Person id;
+    private Person cedula;
     private int age;
     private String species;
     private String breed;
@@ -18,13 +18,15 @@ public class Pet {
         this.name = name;
     }
 
-    public Person getid() {
-        return id;
+    public Person getId() {
+        return cedula;
     }
 
-    public void setid(Person id) {
-        this.id = id;
+    public void setId(Person cedula) {
+        this.cedula = cedula;
     }
+
+    
 
     public int getAge() {
         return age;
