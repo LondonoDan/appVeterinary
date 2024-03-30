@@ -3,6 +3,7 @@ package app.dtos;
 import appModels.Person;
 import appModels.clinicHistory;
 
+
 public class clinicalHistoryDto {
     
     private long admissionDate;
@@ -20,6 +21,19 @@ public class clinicalHistoryDto {
     private String medicationDosage;
     private int ordercancelation;
 
+    public clinicalHistoryDto(long admissionDate) {
+        this.admissionDate = admissionDate;
+    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public clinicalHistoryDto(long admissionDate, PersonDto id, PersonDto cedula, String motive, String symptomatology, String procedure, String medicines, int order, String vaccines, String allergy, String detailProcedure, String diagnosis, String medicationDosage, int ordercancelation) {
         this.admissionDate = admissionDate;
         this.id = id;

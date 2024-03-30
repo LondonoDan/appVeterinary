@@ -11,6 +11,8 @@ import app.dtos.clinicalHistoryDto;
 import app.validators.PersonInputsValidator;
 import app.validators.PetInputsValidator;
 import app.validators.historyClinicalValidator;
+import static java.lang.System.currentTimeMillis;
+import java.sql.Timestamp;
 import java.util.Scanner;
 
 
@@ -100,7 +102,10 @@ public class VeteniraryController {
 	}
     
     private void create()throws Exception {
-        long Date = System.currentTimeMillis();
+       long currentTimeMillis = System.currentTimeMillis();
+        Timestamp timestamp = new Timestamp(currentTimeMillis);
+        System.out.println("Timestamp actual: " + timestamp);
+        
         System.out.println("ingrese la cedula del usuario");
         Long id = historyClinicalValidator.idValidator(reader.nextLine());
         PersonDto PersonDto = new PersonDto(id);
@@ -109,9 +114,6 @@ public class VeteniraryController {
         Long cedula = historyClinicalValidator.cedulaValidator(reader.nextLine());
         PersonDto personDto = new PersonDto(cedula);
         
-       
-        
-       
         System.out.println("Ingrese el motivo de la consulta ");
         String motive = reader.nextLine();
         historyClinicalValidator.motivedValidator(motive);
@@ -151,7 +153,7 @@ public class VeteniraryController {
         
         
         System.out.println("se cumplieron todas las validaciones");
-        clinicalHistoryDto clinicalHistoryDto = new clinicalHistoryDto();
+        clinicalHistoryDto clinicalHistoryDto = new clinicalHistoryDto(currentTimeMillis(), PersonDto, personDto, motive, symptomatology, procedure, medicines, 0, vaccines, allergy, detailProcedure, diagnosis, medicationDosage, 0);
         veterinaryService.create(clinicalHistoryDto);
         }
     

@@ -3,6 +3,8 @@ package app.Service;
 import app.dao.HistoryClinicalImp;
 import app.dao.LoginDao;
 import app.dao.LonginDaolmp;
+import app.dao.OrderDao;
+import app.dao.OrderDaoImpl;
 import app.dao.PersonDao;
 import app.dao.PersonDaoImp;
 import app.dtos.PersonDto;
@@ -13,6 +15,7 @@ import java.util.List;
 import app.dao.PetDao;
 import app.dao.PetDaoImp;
 import app.dao.clinicalHistoryDao;
+import app.dtos.OrderDto;
 import app.dtos.clinicalHistoryDto;
 
 public class veterinaryService implements VeterinaryServic, LoginService {
@@ -76,21 +79,38 @@ public class veterinaryService implements VeterinaryServic, LoginService {
         @Override
         public void create(clinicalHistoryDto clinicalHistoryDto) throws Exception {
             
-            PersonDto personDto = new PersonDto(clinicalHistoryDto.getId().getcedula());
-                PersonDao personDao = new PersonDaoImp();
-		if (!personDao.findUserExist(personDto)) {
-                    throw new Exception("No existe un propietario con la cedula ingresada");
-                } 
+            PersonDto personDto = new PersonDto(clinicalHistoryDto.getCedula().getcedula());
+            PersonDao personDao = new PersonDaoImp();
+            if (!personDao.findUserExist(personDto)){
+                throw new Exception("No existe un propietario con la cedula ingresada");
+            }
             
-            PersonDto PersonDto = new PersonDto(clinicalHistoryDto.getCedula().getcedula());
+            
+            PersonDto PersonDto = new PersonDto(clinicalHistoryDto.getId().getcedula());
                 PersonDao PersonDao = new PersonDaoImp();
 		if (!PersonDao.findUserExist(PersonDto)) {
                     throw new Exception("No existe un veterinario con la cedula ingresada");
                 } 
+
             clinicalHistoryDao clinicalHistoryDao = new HistoryClinicalImp();
             clinicalHistoryDao.create(clinicalHistoryDto);
             System.out.println("Se ha creado la historia clinica");    
         }
+        
+        
+        @Override
+    public void createOrder(OrderDto orderDto) throws Exception {
+            PersonDto personDto = new PersonDto(orderDto.getOwnerID().getCedula());
+            PersonDao personDao = new PersonDaoImp();
+            if (!personDao.findUserExist(personDto)){
+                throw new Exception("No existe un propietario");
+            }
+            
+            OrderDao orderDao = new OrderDaoImpl();
+            orderDao.createOrder(orderDto);
+            System.out.println("Se ha creado la Orden");
+    }
+       
 
         @Override
 	public void logout() throws Exception {
@@ -98,4 +118,6 @@ public class veterinaryService implements VeterinaryServic, LoginService {
 		loginDao.logout(sessionId);
 		setSesionID(0);
 	}
+
+    
 }
