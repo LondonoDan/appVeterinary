@@ -14,6 +14,10 @@ public class OrderDto {
     private String dosage;
     private Date generationDate;
 
+    public OrderDto() {
+    }
+    
+
     public OrderDto(long orderId, long petId, Person ownerID, Person veterinarianID, String medicationName, String dosage, Date generationDate) {
         this.orderId = orderId;
         this.petId = petId;

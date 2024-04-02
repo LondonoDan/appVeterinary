@@ -98,14 +98,9 @@ public class veterinaryService implements VeterinaryServic, LoginService {
         }
         
         
+        
         @Override
     public void createOrder(OrderDto orderDto) throws Exception {
-            PersonDto personDto = new PersonDto(orderDto.getOwnerID().getCedula());
-            PersonDao personDao = new PersonDaoImp();
-            if (!personDao.findUserExist(personDto)){
-                throw new Exception("No existe un propietario");
-            }
-            
             OrderDao orderDao = new OrderDaoImpl();
             orderDao.createOrder(orderDto);
             System.out.println("Se ha creado la Orden");

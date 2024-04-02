@@ -5,6 +5,7 @@ import app.Service.VeterinaryServic;
 import app.Service.veterinaryService;
 import app.dao.PersonDao;
 import app.dao.PersonDaoImp;
+import app.dtos.OrderDto;
 import app.dtos.PersonDto;
 import app.dtos.PetDto;
 import app.dtos.clinicalHistoryDto;
@@ -36,6 +37,7 @@ public class VeteniraryController {
             + "\n1. Ingresar un propietario"
             + "\n2. Ingresar una mascota "
             + "\n3. Crear historia clinica"
+            + "\n4. Crear orden"
             + "\n5. Para cerrar Sesion";
     
     
@@ -149,13 +151,27 @@ public class VeteniraryController {
         System.out.println("Ingrese la dosis de medicación a aplicar");
         String medicationDosage = reader.nextLine();
         historyClinicalValidator.medicationDosageValidator(medicationDosage);
-        
-        
-        
         System.out.println("se cumplieron todas las validaciones");
         clinicalHistoryDto clinicalHistoryDto = new clinicalHistoryDto(currentTimeMillis(), PersonDto, personDto, motive, symptomatology, procedure, medicines, 0, vaccines, allergy, detailProcedure, diagnosis, medicationDosage, 0);
         veterinaryService.create(clinicalHistoryDto);
         }
+    
+    private OrderDto createOrder()throws Exception {
+                OrderDto orderDto = new OrderDto();
+                
+		veterinaryService.createOrder(orderDto);
+                
+                return orderDto;        
+        
+        
+        
+       
+        
+       
+    
+    }
+    
+        
     
     public void session(PersonDto personDto) {
                 this.personDto = personDto;
@@ -185,10 +201,12 @@ public class VeteniraryController {
                 case "3": {
 			
 			create();
+                        
                         return true;
 		}
                 
                 case "4": {
+                    createOrder();
 			return false;
 		}
 		case "5": {
